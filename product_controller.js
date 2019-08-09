@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-    Product.deleteOne({ _id: req.param.id }, (err) => {
+    Product.deleteOne({ _id: req.params.id }, (err) => {
         if (err) {
             res.status(500).send(err);
         } else {
@@ -39,7 +39,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.patch('/:id', (req, res) => {
-    Product.findById(req.param.id, (err, prod) => {
+    Product.findById(req.params.id, (err, prod) => {
         if (err) {
             res.status(500).send(err);
         } else if (!prod) {
